@@ -1,0 +1,72 @@
+.carousel-item {
+    transition: opacity 5s ease-in-out; /* Aplica a transição suave no efeito de fade */
+  }
+  
+  .carousel-item-next, .carousel-item-prev, .carousel-item.active {
+    opacity: 0;
+  }
+  
+  .carousel-item-next, .carousel-item-prev {
+    display: block;
+    opacity: 0;
+  }
+  
+  .carousel-item.active {
+    opacity: 0,5;
+  }
+
+  div.box {
+    width: 100px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  div.box{
+    padding: 2%;
+    display: inline;
+    max-width: 30%;
+  }
+
+div.box img{
+  display: inline;
+  max-height: 130px;
+  max-width: 100%;
+}  
+ div.box img:hover{
+  transform: scale(1.2);
+ }
+
+ button{
+  display: inline;
+  max-height: 130px;
+  max-width: 100%;
+ }
+
+ div.caixa {
+  width: 400px;
+  margin-inline: 100px;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+div.caixa{
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ee0e0e;
+  padding: 2%;
+  display: inline-flex;
+  flex-wrap: wrap;  
+  max-width: 20%;
+  justify-content: center;
+
+}
+
+div.caixa img{ 
+  border-radius: 10%;
+  max-height: 300px;
+  max-width: 270%;
+}
+
+div.caixa img:hover{
+  transform: scale(1.2);
+ }
