@@ -1,5 +1,5 @@
 .carousel-item {
-    transition: opacity 5s ease-in-out; /* Aplica a transição suave no efeito de fade */
+    transition: opacity 5s ease-in-out; 
   }
   
   .carousel-item-next, .carousel-item-prev, .carousel-item.active {
