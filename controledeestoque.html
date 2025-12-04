@@ -197,7 +197,7 @@ document.getElementById('formEstoque').addEventListener('submit', async function
     };
 
     try {
-        const response = await fetch("http://localhost:3000/produtos", {
+        const response = await fetch('/produtos', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(dados)
@@ -231,7 +231,7 @@ async function deletarProduto(id) {
     }
 
     try {
-        const response = await fetch(`http://localhost:3000/produtos/${id}`, {
+        const response = await fetch(`produtos/${id}`, {
             method: "DELETE" // Usa o método DELETE para chamar a rota no servidor
         });
 
@@ -312,7 +312,7 @@ async function buscarProduto() {
 
     try {
         // Usa a rota de busca do seu Back-end, conforme configurado na sua última alteração.
-        const response = await fetch(`http://localhost:3000/produtos/search?codigo=${termoBusca}`);
+        const response = await fetch(`produtos/search?codigo=${termoBusca}`);
         
         if (!response.ok) {
             throw new Error(`Erro na busca. Status: ${response.status}`);

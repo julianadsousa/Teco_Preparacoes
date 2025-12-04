@@ -343,7 +343,7 @@ async function deletarCliente(id) {
     }
 
     try {
-        const response = await fetch(`http://localhost:3000/clientes/${id}`, {
+        const response = await fetch(`/clientes/${id}`, {
             method: "DELETE"
            });
 
@@ -373,7 +373,7 @@ async function buscarCliente() {
     }
 
     try {
-        const response = await fetch(`http://localhost:3000/clientes/search?termo=${termoBusca}`);
+        const response = await fetch(`clientes/search?termo=${termoBusca}`);
         
         if (!response.ok) {
             throw new Error(`Erro na busca. Status: ${response.status}`);
@@ -401,7 +401,7 @@ async function carregarClientes(clientesParaExibir = null) {
         clientes = clientesParaExibir;
     } else {
         try {
-            const response = await fetch("http://localhost:3000/clientes/");
+            const response = await fetch('clientes/');
             if (!response.ok) {
                 throw new Error(`Erro ao carregar lista. Status: ${response.status}`);
             }
@@ -468,7 +468,7 @@ document.getElementById('formClientes').addEventListener('submit', async functio
         fone: foneLimpo, 
     };
     try{
-        const response = await fetch("http://localhost:3000/clientes", {
+        const response = await fetch('/clientes', {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(dados)
