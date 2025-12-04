@@ -31,7 +31,7 @@
     </header>
 
     <main class="container">
-    <body class="text-muted">  
+    <body class="text-muted bg-light">  
     <section id="Services" style="margin-top: 5px;" class="clients section light-background text-center">
       <div class="container section-title text-danger" data-aos="fade-up" style="padding: 15px;"><br>
         </div> 
@@ -202,9 +202,9 @@
    </section>
 
  
-  <footer class="container-fluid bg-black"> 
+  <footer class="container-fluid bg-black w-100"> 
   </div>
-  <div class="copyright text-center text-danger">
+  <div class="copyright text-center text-danger mt-5"><br>
     <p>© <span>Copyright</span> <strong class="px-1 sitename">Teco Preparações</strong> <span>All Rights Reserved</span> <span>2025</span></p>
   <div class="credits">
     Desenvolvido por Juliana Sousa<br><br>
@@ -401,7 +401,7 @@ async function carregarClientes(clientesParaExibir = null) {
         clientes = clientesParaExibir;
     } else {
         try {
-            const response = await fetch('clientes/');
+            const response = await fetch(`clientes/`);
             if (!response.ok) {
                 throw new Error(`Erro ao carregar lista. Status: ${response.status}`);
             }
@@ -468,7 +468,7 @@ document.getElementById('formClientes').addEventListener('submit', async functio
         fone: foneLimpo, 
     };
     try{
-        const response = await fetch('/clientes', {
+        const response = await fetch(`/clientes`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(dados)

@@ -31,7 +31,7 @@
 </header>
 
 <main class="container">
-<body class="text-muted">  
+<body class="text-muted bg-light">  
 <section id="Services" style="margin-top: 5px;" class="clients section light-background text-center">
       <div class="container section-title text-danger" data-aos="fade-up" style="padding: 15px;"><br>
         </div> 
@@ -168,9 +168,9 @@
     </table> 
 </section>
 
-<footer class="container-fluid bg-black"> 
+  <footer class="container-fluid mt-5 bg-black"> 
   </div>
-  <div class="copyright text-center text-danger">
+  <div class="copyright text-center text-danger"><br>
     <p>© <span>Copyright</span> <strong class="px-1 sitename">Teco Preparações</strong> <span>All Rights Reserved</span> <span>2025</span></p>
   <div class="credits">
     Desenvolvido por Juliana Sousa<br><br>
@@ -264,14 +264,14 @@ async function carregarProdutos(produtosParaExibir = null) {
     } else {
         // Carrega todos os produtos se não houver lista fornecida
         try {
-            const response = await fetch("http://localhost:3000/produtos");
+            const response = await fetch(`/produtos`);
             if (!response.ok) {
                 throw new Error(`Erro ao carregar lista. Status: ${response.status}`);
             }
             produtos = await response.json();
         } catch (error) {
             console.error('Erro ao carregar produtos:', error);
-            tabela.innerHTML = `<tr><td colspan="8" class="text-center text-danger">Não foi possível carregar os produtos. Verifique se o servidor está rodando em http://localhost:3000.</td></tr>`;
+            tabela.innerHTML = `<tr><td colspan="12" class="text-center text-danger">Não foi possível carregar os produtos. Verifique se o servidor está rodando.</td></tr>`;
             return;
         }
     }
