@@ -70,3 +70,21 @@ div.caixa img{
 div.caixa img:hover{
   transform: scale(1.2);
  }
+
+body {
+  background-color: #000;
+}
+
+.card {
+  border: 1px solid #dc3545;
+  background-color: #111;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #b02a37;
+}

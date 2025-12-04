@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teco Preparações</title>
+</head>
+<body>
+<header class="container-fluid bg-black text-center">
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="Img/Logo_Teco/02.png" alt="Logo" width="300" height="80""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-danger"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+
+            <a href="painel.html" 
+                class="btn btn-outline-danger position-absolute" 
+                style="top: 20px; right: 20px;">
+                Sair
+            </a> 
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+    <body class="text-muted">  
+    <section id="Services" style="margin-top: 5px;" class="clients section light-background text-center">
+      <div class="container section-title text-danger" data-aos="fade-up" style="padding: 15px;"><br>
+        </div> 
+        <div class="py-3 text-center text-danger">
+          <h2>CADASTRO DE CLIENTES</h2>
+        </div>
+        <div class="col-md-7 col-lg-12">
+            <h4 class="py-5">Cadastrar Cliente</h4>
+            <form id="formClientes" class="needs-validation" novalidate>
+                </div>
+        <div class="container text-center mt-2 mb-5">
+          <div class="row justify-content-center">
+        <div class="col-md-6">
+
+            <div class="input-group">
+                <input type="text" id="pesquisaCliente" class="form-control" placeholder="Pesquisar cliente...">
+                <button class="btn btn-danger" type="button" onclick="buscarCliente()">Pesquisar</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+          <div class="col-md-7 col-lg-12">
+            <form class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-4">
+                  <label for="nomeRazaoSocial" class="form-label">Nome/Razão Social</label>
+                  <input type="text" class="form-control" id="nomeRazaoSocial" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Valid nomeRazaoSocial is required.
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <label for="dataCadastro" class="form-label">Data de Cadastro</label>
+                  <input type="date" class="form-control mb-2" id="dataCadastro" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Valid data cadastro is required.
+                  </div>
+                </div>
+
+                <div class="col-sm-2">
+                  <label for="cpfCnpj" class="form-label">CPF/CNPJ</label>
+                  <input type="text" class="form-control" id="cpfCnpj" placeholder="" value="" maxlength="18" required>
+                  <div class="invalid-feedback">
+                    Valid cpf Cnpj is required.
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <label for="nomeCompleto" class="form-label">Nome completo</label>
+                  <input type="text" class="form-control" id="nomeCompleto" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Valid nome completo is required.
+                  </div>
+                </div>
+    
+                <div class="col-sm-5">
+                  <label for="endereco" class="form-label">Endereço</label>
+                  <input type="text" class="form-control" id="endereco" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Valid endereco is required.
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <label for="bairro" class="form-label">Bairro</label>
+                  <input type="text" class="form-control" id="bairro" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Valid bairro is required.
+                  </div>
+                </div>
+    
+                <div class="col-sm-3">
+                  <label for="cep" class="form-label">CEP</label>
+                  <input type="text" class="form-control" id="cep" placeholder="" value="" maxlength="9" required>
+                  <div class="invalid-feedback">
+                    Valid cep is required.
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <label for="cidade" class="form-label">Cidade</label>
+                  <input type="text" class="form-control" id="cidade" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Valid cidade is required.
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <label for="uf" class="form-label">UF</label>
+                  <input type="text" class="form-control" id="uf" placeholder="" value="" required>
+                  <div class="invalid-feedback">
+                    Valid uf is required.
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <label for="fone" class="form-label">Fone</label>
+                  <input type="text" class="form-control" id="fone" placeholder="" value="" maxlength="15" required>
+                  <div class="invalid-feedback">
+                    Valid fone is required.
+                  </div>
+                </div>
+
+                <div class="col-sm-2"></div> 
+            <div class="col-lg-12">
+              <div class="row justify-content-center">
+                <button class="w-25 btn btn-danger" type="submit">Finalizar</button>
+              </div>
+            </div>
+          </div>
+
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    </main>
+<br>
+    <section class="container-fluid">
+    <table class="table table-warning table-striped table-hover table bordered border-warning">
+        <thead class="table-secondary">
+        <tr> 
+            <th>
+              ID
+            </th>
+            <th>
+                Nome/Razão Social
+            </th>
+            <th>
+                Data de Cadastro
+            </th>
+            <th>
+                CPF/CNPJ
+            </th>
+            <th>
+              Nome Completo
+            </th>
+            <th>
+              Endereço
+            </th>
+            <th>
+              Bairro
+            </th>
+            <th>
+              CEP
+            </th>
+            <th>
+              Cidade
+            </th>
+            <th>
+              UF
+            </th>
+            <th>
+              Fone  
+            </th>
+            <th>
+              Ações
+            </th>
+        </tr>
+        </thead>
+        <tbody id="tabelaCadastroClientes" class="table-group-divider">
+
+        </tbody>
+    </table> 
+   </section>
+
+ 
+  <footer class="container-fluid bg-black"> 
+  </div>
+  <div class="copyright text-center text-danger">
+    <p>© <span>Copyright</span> <strong class="px-1 sitename">Teco Preparações</strong> <span>All Rights Reserved</span> <span>2025</span></p>
+  <div class="credits">
+    Desenvolvido por Juliana Sousa<br><br>
+  </div>
+</div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<script>
+
+// ===================================
+// FUNÇÕES DE MÁSCARA (Adicionadas)
+// ===================================
+
+// Função genérica de máscara (apenas números)
+function mascara(o, f) {
+    setTimeout(function() {
+        var v = o.value.replace(/\D/g, ""); // Remove tudo que não for dígito
+        o.value = f(v);
+    }, 1);
+}
+
+// 1. Máscara de CPF/CNPJ (Dinâmica)
+function cpfCnpj(v) {
+    v = v.replace(/\D/g, ""); // 1. Remove tudo que não for dígito
+    
+    // CPF (11 dígitos)
+    if (v.length <= 11) { 
+        v = v.replace(/(\d{3})(\d)/, "$1.$2");
+        v = v.replace(/(\d{3})(\d)/, "$1.$2");
+        v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
+    // CNPJ (14 dígitos)
+    } else { 
+        v = v.replace(/^(\d{2})(\d)/, "$1.$2");
+        v = v.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3");
+        v = v.replace(/\.(\d{3})(\d)/, ".$1/$2");
+        v = v.replace(/(\d{4})(\d)/, "$1-$2");
+        v = v.substring(0, 18); // Limita a 18 caracteres
+    }
+    return v;
+}
+
+// 2. Máscara de CEP
+function cep(v) {
+    v = v.replace(/\D/g, ""); // 1. Remove tudo que não for dígito
+    v = v.replace(/^(\d{5})(\d)/, "$1-$2");
+    v = v.substring(0, 9); // Limita a 9 caracteres (8 dígitos + hífen)
+    return v;
+}
+
+// 3. Máscara de Telefone (Fixo e Celular com 8 ou 9 dígitos)
+function fone(v) {
+    v = v.replace(/\D/g, ""); // 1. Remove tudo que não for dígito
+    v = v.replace(/^(\d{2})(\d)/g, "($1) $2");
+    v = v.replace(/(\d)(\d{4})$/, "$1-$2");
+    v = v.substring(0, 15); // Limita a (00) 00000-0000 (15 caracteres)
+    return v;
+}
+
+// ===================================
+// APLICAÇÃO DAS MÁSCARAS AOS INPUTS
+// ===================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Aplica a máscara dinâmica de CPF/CNPJ ao input
+    const inputCpfCnpj = document.getElementById('cpfCnpj');
+    if (inputCpfCnpj) {
+        inputCpfCnpj.addEventListener('keyup', function() {
+            mascara(this, cpfCnpj);
+        });
+    }
+
+    // Aplica a máscara de CEP ao input
+    const inputCep = document.getElementById('cep');
+    if (inputCep) {
+        inputCep.addEventListener('keyup', function() {
+            mascara(this, cep);
+        });
+    }
+
+    // Aplica a máscara de Fone ao input
+    const inputFone = document.getElementById('fone');
+    if (inputFone) {
+        inputFone.addEventListener('keyup', function() {
+            mascara(this, fone);
+        });
+    }
+
+    // Chamada inicial para carregar a tabela ao abrir a página
+    carregarClientes();
+});
+
+// ===================================
+// FUNÇÕES DE FORMATAÇÃO DE SAÍDA (Tabela)
+// ===================================
+
+// Funções de formatação para exibição na tabela
+function formatarCpfCnpj(valor) {
+    if (!valor) return '';
+    const limpo = valor.replace(/\D/g, '');
+    if (limpo.length === 11) { // CPF
+        return limpo.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4");
+    } else if (limpo.length === 14) { // CNPJ
+        return limpo.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5");
+    }
+    return valor; // Retorna original se não for nem CPF nem CNPJ
+}
+
+function formatarFone(valor) {
+    if (!valor) return '';
+    const limpo = valor.replace(/\D/g, '');
+    if (limpo.length === 10) { // Fixo: (XX) XXXX-XXXX
+        return limpo.replace(/^(\d{2})(\d{4})(\d{4})$/, '($1) $2-$3');
+    } else if (limpo.length === 11) { // Celular: (XX) XXXXX-XXXX
+        return limpo.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+    }
+    return valor;
+}
+
+function formatarCep(valor) {
+    if (!valor) return '';
+    const limpo = valor.replace(/\D/g, '');
+    if (limpo.length === 8) {
+        return limpo.replace(/^(\d{5})(\d{3})$/, '$1-$2');
+    }
+    return valor;
+}
+
+
+// 1. FUNÇÃO DELETAR CLIENTE
+async function deletarCliente(id) {
+    if (!confirm(`Tem certeza que deseja deletar o cliente (ID: ${id})? Esta ação é irreversível.`)) {
+        return; 
+    }
+
+    try {
+        const response = await fetch(`http://localhost:3000/clientes/${id}`, {
+            method: "DELETE"
+           });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message || `Erro HTTP: ${response.status}`);
+        }
+
+        const result = await response.json();
+        alert(result.message);
+
+        carregarClientes(); 
+    } catch (error) {
+        console.error('Erro ao deletar cliente:', error);
+        alert(`Falha ao deletar o cliente. Erro: ${error.message}`);
+    }
+}
+
+
+// 2. FUNÇÃO BUSCAR CLIENTE
+async function buscarCliente() {
+    const termoBusca = document.getElementById('pesquisaCliente').value.trim();
+
+    if (!termoBusca) {
+        carregarClientes();
+        return;
+    }
+
+    try {
+        const response = await fetch(`http://localhost:3000/clientes/search?termo=${termoBusca}`);
+        
+        if (!response.ok) {
+            throw new Error(`Erro na busca. Status: ${response.status}`);
+        }
+
+        const clientes = await response.json(); 
+        carregarClientes(clientes); 
+        
+    } catch (error) {
+        console.error('Erro ao buscar clientes:', error);
+        const tabela = document.getElementById("tabelaCadastroClientes");
+        tabela.innerHTML = `<tr><td colspan="12" class="text-center text-danger">Falha ao realizar a busca.</td></tr>`;
+    }
+}
+
+
+// 3. FUNÇÃO CARREGAR CLIENTES (Usa as funções de formatação)
+async function carregarClientes(clientesParaExibir = null) {
+    const tabela = document.getElementById("tabelaCadastroClientes");
+    tabela.innerHTML = "";
+
+    let clientes; 
+
+    if(clientesParaExibir) {
+        clientes = clientesParaExibir;
+    } else {
+        try {
+            const response = await fetch("http://localhost:3000/clientes/");
+            if (!response.ok) {
+                throw new Error(`Erro ao carregar lista. Status: ${response.status}`);
+            }
+            clientes = await response.json();
+        } catch (error) {
+            console.error('Erro ao carregar clientes:', error);
+            tabela.innerHTML = `<tr><td colspan="12" class="text-center text-danger">Não foi possível carregar os clientes. Verifique se o servidor está rodando.</td></tr>`;
+            return;
+        }
+    }
+
+    if (!clientes || clientes.length === 0) {
+        tabela.innerHTML = `<tr><td colspan="12" class="text-center text-info">Nenhum cliente encontrado.</td></tr>`;
+        return;
+    }
+
+    clientes.forEach(clie => {
+        // Aplica a formatação APENAS na exibição da tabela
+        const cpfCnpjFormatado = formatarCpfCnpj(clie.cpfCnpj);
+        const cepFormatado = formatarCep(clie.cep);
+        const foneFormatado = formatarFone(clie.fone);
+
+        tabela.innerHTML += `
+            <tr>
+                <td>${clie.id}</td>
+                <td>${clie.nomeRazaoSocial}</td>
+                <td>${clie.dataCadastro}</td>
+                <td>${cpfCnpjFormatado}</td>
+                <td>${clie.nomeCompleto}</td>
+                <td>${clie.endereco}</td>
+                <td>${clie.bairro}</td>
+                <td>${cepFormatado}</td>
+                <td>${clie.cidade}</td>
+                <td>${clie.uf}</td>
+                <td>${foneFormatado}</td>
+                <td>
+                    <button class="btn btn-sm btn-danger" onclick="deletarCliente(${clie.id})">Deletar</button>
+                </td>
+            </tr>
+        `;
+    });
+}
+
+// 4. LISTENER DO FORMULÁRIO (Limpa a formatação antes de enviar)
+document.getElementById('formClientes').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    
+    // Remove a formatação (pontos, traços, parênteses) para enviar apenas dígitos ao backend
+    const cpfCnpjLimpo = document.getElementById('cpfCnpj').value.replace(/\D/g, '');
+    const cepLimpo = document.getElementById('cep').value.replace(/\D/g, '');
+    const foneLimpo = document.getElementById('fone').value.replace(/\D/g, '');
+
+
+    const dados = {
+        nomeRazaoSocial: document.getElementById('nomeRazaoSocial').value,
+        dataCadastro: document.getElementById('dataCadastro').value,
+        cpfCnpj: cpfCnpjLimpo, 
+        nomeCompleto: document.getElementById('nomeCompleto').value,
+        endereco: document.getElementById('endereco').value,
+        bairro: document.getElementById('bairro').value,
+        cep: cepLimpo, 
+        cidade: document.getElementById('cidade').value,
+        uf: document.getElementById('uf').value,
+        fone: foneLimpo, 
+    };
+    try{
+        const response = await fetch("http://localhost:3000/clientes", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(dados)
+        });
+
+        if(!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.error || `Erro HTTP: ${response.status}`);
+        }
+        const result = await response.json();
+        alert("Cliente cadastrado com ID: " + result.id);
+
+        this.reset();
+        
+        carregarClientes(); 
+    } catch (error) {
+        console.error('Erro ao cadastrar cliente:', error);
+        alert(`Falha ao cadastrar o cliente. Verifique o console. Erro: ${error.message}`);
+    }
+
+});
+
+
+</script>
+</body>
+</html>

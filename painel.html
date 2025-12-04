@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do Sistema</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="container-fluid bg-black text-center">
+    <nav class="navbar navbar-expand-lg bg-black">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="Img/Logo_Teco/02.png" alt="Logo" width="300" height="80""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon bg-danger"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+             <a href="arearestrita.html" 
+                class="btn btn-outline-danger position-absolute" 
+                style="top: 20px; right: 20px;">
+                Sair
+            </a>
+          </div>
+        </div>
+      </nav>
+      <h2 class="text-center text-white mb-5" style="font-weight: 600;">
+    SELECIONE UMA FUNCIONALIDADE
+</h2>
+
+    </header>
+</body>
+<body class="bg-light">
+
+    <div class="container d-flex justify-content-center align-items-center vh-100">
+        
+        <div class="row g-4 w-100" style="max-width: 900px;">
+
+            <!-- CARD 1 - CONTROLE DE ESTOQUE -->
+            <div class="col-md-6">
+                <div class="card shadow-lg border-0 h-100">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        
+                        <h3 class="card-title text-center mb-3">Controle de Estoque</h3>
+                        
+                        <p class="text-center text-secondary">
+                            Gerencie produtos, quantidades e movimentações do estoque.
+                        </p>
+
+                        <div class="text-center mt-3">
+                            <a href="controledeestoque.html" class="btn btn-danger w-75">
+                                Acessar
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- CARD 2 - CADASTRO DE CLIENTES -->
+            <div class="col-md-6">
+                <div class="card shadow-lg border-0 h-100">
+                    <div class="card-body d-flex flex-column justify-content-between">
+                        
+                        <h3 class="card-title text-center mb-3">Cadastro de Clientes</h3>
+                        
+                        <p class="text-center text-secondary">
+                            Adicione, consulte e atualize informações dos clientes.
+                        </p>
+
+                        <div class="text-center mt-3">
+                            <a href="cadastrodecliente.html" class="btn btn-danger w-75">
+                                Acessar
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

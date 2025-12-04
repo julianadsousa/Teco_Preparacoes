@@ -1,205 +1,80 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" 
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teco Preparações</title>
+    <title>Login - Teco Preparações</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
-<header class="container-fluid bg-black text-center">
-    <nav class="navbar navbar-expand-lg bg-black">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#"><img src="Img/Logo_Teco/02.png" alt="Logo" width="300" height="80""></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon bg-danger"></span>
-          </button>
-          <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-danger" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Menu</a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item text-danger" href="index.html">Home</a></li>
-              <li><a class="dropdown-item text-danger" href="index.html#about">Quem somos</a></li>
-              <li><a class="dropdown-item text-danger" href="servicos.html">Serviços</a></li>
-              <li><a class="dropdown-item text-danger" href="index.html#contact">Fale conosco</a></li>
-            </ul>
-            </li>
-          </ul>
-        </li>
-        </ul>  
-          </div>
+
+<body class="d-flex align-items-center justify-content-center vh-100 bg-dark">
+
+   <a href="index.html" 
+   class="btn btn-outline-danger position-absolute" 
+   style="top: 20px; right: 20px;">
+    Sair
+</a>
+
+    <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <!-- card de login aqui -->
+
+    <div class="card p-4" style="width: 380px;">
+        <div class="text-center mb-3">
+            <img src="Img/Logo_Teco/02.png" alt="Logo" width="250">
         </div>
-      </nav>
-    </header>
 
-    <main class="container">
-    <body class="text-muted">   
-    <section id="Services" style="margin-top: 5px;" class="clients section light-background text-center">
-      <div class="container section-title text-danger" data-aos="fade-up" style="padding: 15px;"><br>
-        </div> 
-        <div class="py-3 text-center text-danger">
-          <h2>CONTROLE DE ESTOQUE</h2>
-        </div>
-        <div class="col-md-7 col-lg-8">
-            <h4 class="py-5">Cadastrar Item</h4>
-            <form id="formEstoque" class="needs-validation" novalidate>
-                </div>
-        <div class="row g-5">
-          <div class="col-md-5 col-lg-4 order-md-last col-12 col-mb-11 mb-3">
-            <h4 class="d-flex justify-content-between align-items-center fs-6 fw-normal mb-1 text-secondary">
-              <span class="text-secondary" style="height:0px";>Descrição</span>
-            </h4>
+        <h4 class="text-center text-danger mb-4">Área Restrita</h4>
 
-        <div class="col-12 col-mb-11 mb-3"> 
-          <label for="descrição" class="form-label"></label> 
-            <textarea class="form-control mb-lg-8" id="descrição" rows="6"></textarea> 
-              <div class="invalid-feedback"> Valid descrição is required.
-        </div> 
-        </div> 
-        <div class="col-sm-6 col-md mt-3"></div> 
-            <form class="card p-2">
-              <div class="input-group">
-                <button class="w-100 btn btn-secondary btn-lg" type="submit">Finalizar</button>
-              </div>
-            </form>
-          </div>
-          <div class="col-md-7 col-lg-8">
-            <form class="needs-validation" novalidate>
-              <div class="row g-3">
-                <div class="col-sm-6">
-                  <label for="nomeItem" class="form-label">Nome do Item</label>
-                  <input type="text" class="form-control" id="nomeItem" placeholder="" value="" required>
-                  <div class="invalid-feedback">
-                    Valid nome item is required.
-                  </div>
-                </div>
-    
-                <div class="col-sm-6">
-                  <label for="codigoItem" class="form-label">Codigo do item</label>
-                  <input type="text" class="form-control" id="codigoItem" placeholder="" value="" required>
-                  <div class="invalid-feedback">
-                    Valid codigo item is required.
-                  </div>
-                </div>
-                <div class="col-sm-6">
-                  <label for="quantidadeEmEstoque" class="form-label">Quantidade em Estoque</label>
-                  <input type="text" class="form-control" id="quantidadeEmEstoque" placeholder="" value="" required>
-                  <div class="invalid-feedback">
-                    Valid quantidade em estoque is required.
-                  </div>
-                </div>
-    
-                <div class="col-sm-6">
-                  <label for="numeroDeSerie" class="form-label">Numero de Série</label>
-                  <input type="text" class="form-control" id="numeroDeSerie" placeholder="" value="" required>
-                  <div class="invalid-feedback">
-                    Valid numero de serie is required.
-                  </div>
-                </div>
-    
-                <div class="col-sm-6">
-                  <label for="dataEntrada" class="form-label">Data de Entrada</label>
-                  <input type="date" class="form-control mb-2" id="dataEntrada" placeholder="" value="" required>
-                  <div class="invalid-feedback">
-                    Valid data entrada is required.
-                  </div>
-                </div>
+        <form id="formLogin">
+            <div class="mb-3">
+                <label for="user" class="form-label text-light">Usuário</label>
+                <input type="text" class="form-control" id="user" required>
+            </div>
 
-                                <div class="col-sm-6">
-                  <label for="dataSaida" class="form-label">Data de Saída</label>
-                  <input type="date" class="form-control mb-2" id="dataSaida" placeholder="" value="" required>
-                  <div class="invalid-feedback">
-                    Valid data saida is required.
-                  </div>
-                  </div>
-                </div>
-              </div>
-             </form>
-          </div>
-        </div>
-      </main>
-<br>
-    <section class="container-fluid">
-    <table class="table table-warning table-striped table-hover table bordered border-warning">
-        <thead class="table-secondary">
-        <tr> 
-            <!--É necessário sempre fechar uma tag tr após uma td ou th e abrir uma nova tr para que a célula fique abaixo da célula anterior-->
-            <th>
-                Código
-            </th>
-            <th>
-                Descrição
-            </th>
-            <th>
-                Item
-            </th>
-            <th>
-              Número de Série
-            </th>
-            <th>
-              Quantidade em estoque
-            </th>
-            <th>
-              Data de entrada
-            </th>
-            <th>
-              Data de saída
-            </th>
-        </tr>
-        </thead>
-        <tbody id="tabelaEstoque" class="table-group-divider">
+            <div class="mb-3">
+                <label for="senha" class="form-label text-light">Senha</label>
+                <input type="password" class="form-control" id="senha" required>
+            </div>
 
-        </tbody>
-    </table> 
-   </section>
-
-  
-  <footer class="container-fluid bg-black"> 
-  </div>
-  <div class="copyright text-center text-danger">
-    <p>© <span>Copyright</span> <strong class="px-1 sitename">Teco Preparações</strong> <span>All Rights Reserved</span> <span>2025</span></p>
-  <div class="credits">
-    Desenvolvido por Juliana Sousa<br><br>
-  </div>
-</div>
-</footer>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
-integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+            <button type="submit" class="btn btn-danger w-100 mt-3">Entrar</button>
+        </form>
+        
+    </div>
 
 <script>
-  document.getElementById('formEstoque').addEventListener('submit', function (e) {
-    e.preventDefault();
+document.getElementById("formLogin").addEventListener("submit", async function(e) {
+    e.preventDefault(); // Impede que o formulário recarregue a página
 
-    const item = document.getElementById('nomeItem').value;
-    const codigo = document.getElementById('codigoItem').value;
-    const quantidade = document.getElementById('quantidadeEmEstoque').value;
-    const numeroSerie = document.getElementById('numeroDeSerie').value;
-    const dataEntrada = document.getElementById('dataEntrada').value;
-    const dataSaida = document.getElementById('dataSaida').value;
-    const descricao = document.getElementById('descrição').value;
+    const user = document.getElementById("user").value;
+    const senha = document.getElementById("senha").value;
 
-    const tabela = document.getElementById('tabelaEstoque');
-    const novaLinha = tabela.insertRow();
+    try {
+        // Envia os dados para a rota POST /login do seu servidor Node.js
+        const response = await fetch('http://localhost:3000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', // Informa ao servidor que o corpo é JSON
+            },
+            body: JSON.stringify({ user, senha }) // Converte os dados em JSON para enviar
+        });
 
-    novaLinha.innerHTML = `
-      <td>${codigo}</td>
-      <td>${descricao}</td>
-      <td>${item}</td>
-      <td>${numeroSerie}</td>
-      <td>${quantidade}</td>
-      <td>${dataEntrada}</td>
-      <td>${dataSaida}</td>
-    `;
+        const data = await response.json();
 
-    this.reset();
-  });
+        if (response.ok) {
+            // Se o servidor respondeu com sucesso (status 200)
+            alert("Login realizado com sucesso!");
+            window.location.href = "painel.html"; // Redireciona para o painel
+        } else {
+            // Se o servidor respondeu com erro (status 401, 400, etc.)
+            alert(data.message || "Erro no login.");
+        }
+    } catch (error) {
+        console.error('Erro ao conectar com o servidor:', error);
+        alert("Não foi possível conectar ao servidor de login. Verifique se o Node.js está rodando.");
+    }
+});
 </script>
+
 </body>
 </html>
-
