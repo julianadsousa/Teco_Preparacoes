@@ -1,0 +1,6 @@
+# Ignora a pasta de dependências do Node.js
+/node_modules
+
+# Ignora o banco de dados
+database.db
+**/*.db
