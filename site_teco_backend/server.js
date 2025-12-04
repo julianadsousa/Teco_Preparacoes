@@ -12,12 +12,12 @@ app.use(express.json());
 
 // CONFIGURAÇÃO DE DEPLOY CORRIGIDA: Serve todos os arquivos estáticos
 // O '..' sobe para a raiz, e então entra na pasta 'Site Teco'.
-app.use(express.static(path.join(__dirname, '..', 'Site Teco')));
+app.use(express.static(path.join(__dirname, '..', 'Site_Teco')));
 
 // Rota Raiz (GET /): Carrega a página inicial principal (index.html)
 // CORREÇÃO: Utilizando o nome EXATO da pasta: 'Site Teco'
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'Site Teco', 'index.html')); 
+    res.sendFile(path.join(__dirname, '..', 'Site_Teco', 'index.html')); 
 });
 
 // Conexão com o banco SQLite
