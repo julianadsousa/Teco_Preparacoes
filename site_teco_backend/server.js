@@ -10,14 +10,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// CONFIGURAÇÃO DE DEPLOY CORRIGIDA: Serve todos os arquivos estáticos
-// Caminho EXATO: '..', sobe para a raiz, e entra em 'Site_Teco'
-app.use(express.static(path.join(__dirname, '..', 'Site_Teco')));
+// CONFIGURAÇÃO CORRIGIDA: Serve todos os arquivos estáticos
+// O '..' sobe da pasta 'site_teco_backend' para a RAIZ do projeto, onde estão todos os arquivos HTML.
+app.use(express.static(path.join(__dirname, '..')));
 
 // Rota Raiz (GET /): Carrega a página inicial principal (index.html)
-// CORREÇÃO: Utilizando o nome EXATO da pasta: 'Site_Teco'
+// CORREÇÃO: Busca o arquivo 'index.html' diretamente na raiz
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'Site_Teco', 'index.html')); 
+    res.sendFile(path.join(__dirname, '..', 'index.html')); 
 });
 
 // Conexão com o banco SQLite
