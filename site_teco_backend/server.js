@@ -10,14 +10,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// CONFIGURAÇÃO DE DEPLOY: Serve todos os arquivos estáticos (HTML, CSS, JS)
-// O '..' sobe da pasta 'api' para a raiz e acessa 'frontend'
-app.use(express.static(path.join(__dirname, '..', 'frontend')));
+// CONFIGURAÇÃO DE DEPLOY CORRIGIDA: Serve todos os arquivos estáticos
+// O '..' sobe para a raiz, e então entra na pasta 'Site Teco'.
+app.use(express.static(path.join(__dirname, '..', 'Site Teco')));
 
-// Rota Raiz (GET /): Carrega a página inicial principal do site (index.html)
-// A página de login (arearestrita.html) estará acessível via /arearestrita.html
+// Rota Raiz (GET /): Carrega a página inicial principal (index.html)
+// CORREÇÃO: Utilizando o nome EXATO da pasta: 'Site Teco'
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html')); 
+    res.sendFile(path.join(__dirname, '..', 'Site Teco', 'index.html')); 
 });
 
 // Conexão com o banco SQLite
@@ -26,7 +26,7 @@ const db = new sqlite3.Database('./database.db', (err) => {
     else console.log("Servidor: Banco de dados conectado!");
 });
 
-// Criação das tabelas (CÓDIGO LIMPO sem caracteres invisíveis)
+// Criação das tabelas (CÓDIGO LIMPO)
 db.run(`
     CREATE TABLE IF NOT EXISTS clientes (
         id INTEGER PRIMARY KEY,
@@ -66,7 +66,7 @@ db.run(`
 
 /* --------------------- FUNÇÕES AUXILIARES DE INSERÇÃO ---------------------- */
 
-// 1. Função de INSERT específica para Clientes (CÓDIGO LIMPO)
+// 1. Função de INSERT específica para Clientes
 function performClientInsert(id, c, res) {
     db.run(
         `INSERT INTO clientes (id, nomeRazaoSocial, dataCadastro, cpfCnpj, nomeCompleto, endereco, bairro, cep, cidade, uf, fone)
@@ -85,7 +85,7 @@ function performClientInsert(id, c, res) {
     );
 }
 
-// 2. Função de INSERT específica para Produtos (CÓDIGO LIMPO)
+// 2. Função de INSERT específica para Produtos
 function performProductInsert(id, p, res) {
     db.run(
         `INSERT INTO produtos (id, item, codigo, quantidade, numeroSerie, dataEntrada, dataSaida, descricao)
@@ -104,12 +104,10 @@ function performProductInsert(id, p, res) {
     );
 }
 
-// FUNÇÃO PARA CRIAR O USUÁRIO PADRÃO (CÓDIGO LIMPO)
+// FUNÇÃO PARA CRIAR O USUÁRIO PADRÃO
 function createDefaultUser() {
-    // Senha que será criptografada
     const password = '1234'; 
 
-    // O bcrypt gera o hash da senha
     bcrypt.hash(password, saltRounds, (err, hash) => {
         if (err) {
             console.error("Erro ao gerar hash inicial:", err);
@@ -118,14 +116,12 @@ function createDefaultUser() {
 
         const username = 'admin';
         
-        // Verifica se o usuário 'admin' já existe
         db.get('SELECT id FROM usuarios WHERE username = ?', [username], (err, row) => {
             if (err) {
                 console.error("Erro ao verificar usuário padrão:", err.message);
                 return;
             }
             if (!row) {
-                // Insere o usuário APENAS se ele não existir
                 db.run('INSERT INTO usuarios (username, password_hash) VALUES (?, ?)', [username, hash], function(err) {
                     if (err) {
                         console.error("Erro ao inserir usuário padrão:", err.message);
@@ -140,16 +136,13 @@ function createDefaultUser() {
     });
 }
 
-// Chame a função após a conexão ser estabelecida
 db.on('open', createDefaultUser);
 
-// 3. Função principal de busca de ID (findAndInsert) - (CÓDIGO LIMPO)
+// 3. Função principal de busca de ID (findAndInsert)
 function findAndInsert(tableName, data, res, insertFunction) {
     
-    // Query de busca de lacuna (CÓDIGO LIMPO)
     const gapQuery = 'SELECT t1.id + 1 AS next_id FROM "' + tableName + '" t1 WHERE NOT EXISTS (SELECT 1 FROM "' + tableName + '" t2 WHERE t2.id = t1.id + 1) ORDER BY t1.id ASC LIMIT 1';
 
-    // 1. Tentar encontrar a menor lacuna
     db.get(gapQuery, (err, row) => {
         if (err) {
             console.error(`Erro ao buscar lacuna em ${tableName}:`, err.message);
@@ -158,23 +151,19 @@ function findAndInsert(tableName, data, res, insertFunction) {
 
         let novoId = (row && row.next_id) ? row.next_id : null;
 
-        // 2. Fallback: Se não encontrou lacuna (NULL), busca o ID máximo e soma 1
         if (novoId === null || novoId === 1) { 
             
-            // Query de MAX ID (CÓDIGO LIMPO)
             const maxQuery = 'SELECT MAX(id) AS max_id FROM "' + tableName + '"';
             
             db.get(maxQuery, (err, row) => {
                 if (err) {
                     return res.status(500).json({ error: "Falha interna ao buscar MAX ID." });
                 }
-                // Se a tabela estiver vazia, o novo ID é 1. Senão, é max_id + 1.
                 novoId = (row && row.max_id) ? row.max_id + 1 : 1;
                 
                 insertFunction(novoId, data, res);
             });
         } else {
-            // Lacuna encontrada, usa o ID da lacuna.
             insertFunction(novoId, data, res);
         }
     });
@@ -199,7 +188,7 @@ app.get('/clientes', (req, res) => {
     });
 });
 
-// 3. Buscar cliente por termo (GET /clientes/search?termo=...) (CÓDIGO LIMPO)
+// 3. Buscar cliente por termo (GET /clientes/search?termo=...)
 app.get('/clientes/search', (req, res) => {
     const termoBusca = req.query.termo;
     const query = `
@@ -241,7 +230,7 @@ app.get('/produtos', (req, res) => {
     });
 });
 
-// Cadastrar produto (POST /produtos) - LÓGICA DE REUTILIZAÇÃO ATIVADA
+// Cadastrar produto (POST /produtos)
 app.post('/produtos', (req, res) => {
     findAndInsert('produtos', req.body, res, performProductInsert);
 });
