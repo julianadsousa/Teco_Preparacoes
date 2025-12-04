@@ -278,7 +278,7 @@ async function carregarProdutos(produtosParaExibir = null) {
 
 
     if (produtos.length === 0) {
-         tabela.innerHTML = `<tr><td colspan="8" class="text-center text-info">Nenhum produto encontrado.</td></tr>`;
+         tabela.innerHTML = `<tr><td colspan="12" class="text-center text-info">Nenhum produto encontrado.</td></tr>`;
          return;
     }
 
@@ -326,7 +326,7 @@ async function buscarProduto() {
     } catch (error) {
         console.error('Erro ao buscar produtos:', error);
         const tabela = document.getElementById("tabelaEstoque");
-        tabela.innerHTML = `<tr><td colspan="8" class="text-center text-danger">Falha ao realizar a busca.</td></tr>`;
+        tabela.innerHTML = `<tr><td colspan="12" class="text-center text-danger">Falha ao realizar a busca.</td></tr>`;
     }
 }
 
