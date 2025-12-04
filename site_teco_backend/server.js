@@ -1,7 +1,7 @@
 const express = require('express');
 const sqlite3 = require('sqlite3').verbose();
 const cors = require('cors');
-const path = require('path'); // Importa o módulo path para lidar com caminhos
+const path = require('path');
 
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
@@ -10,14 +10,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// CONFIGURAÇÃO DE DEPLOY (Serve arquivos estáticos e rota raiz)
+// CONFIGURAÇÃO DE DEPLOY: Serve todos os arquivos estáticos (HTML, CSS, JS)
 // O '..' sobe da pasta 'api' para a raiz e acessa 'frontend'
 app.use(express.static(path.join(__dirname, '..', 'frontend')));
 
-// Rota Raiz (GET /)
-// Garante que a página de login.html seja exibida ao acessar a URL do Render.
+// Rota Raiz (GET /): Carrega a página inicial principal do site (index.html)
+// A página de login (arearestrita.html) estará acessível via /arearestrita.html
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '..', 'frontend', 'login.html'));
+    res.sendFile(path.join(__dirname, '..', 'frontend', 'index.html')); 
 });
 
 // Conexão com o banco SQLite
@@ -26,7 +26,7 @@ const db = new sqlite3.Database('./database.db', (err) => {
     else console.log("Servidor: Banco de dados conectado!");
 });
 
-// Criação das tabelas (CÓDIGO LIMPO)
+// Criação das tabelas (CÓDIGO LIMPO sem caracteres invisíveis)
 db.run(`
     CREATE TABLE IF NOT EXISTS clientes (
         id INTEGER PRIMARY KEY,
@@ -104,7 +104,7 @@ function performProductInsert(id, p, res) {
     );
 }
 
-// FUNÇÃO PARA CRIAR O USUÁRIO PADRÃO (EXECUTE APENAS UMA VEZ!)
+// FUNÇÃO PARA CRIAR O USUÁRIO PADRÃO (CÓDIGO LIMPO)
 function createDefaultUser() {
     // Senha que será criptografada
     const password = '1234'; 
@@ -141,12 +141,12 @@ function createDefaultUser() {
 }
 
 // Chame a função após a conexão ser estabelecida
-db.on('open', createDefaultUser); // Garante que só roda depois que o banco estiver pronto
+db.on('open', createDefaultUser);
 
 // 3. Função principal de busca de ID (findAndInsert) - (CÓDIGO LIMPO)
 function findAndInsert(tableName, data, res, insertFunction) {
     
-    // CORREÇÃO: Usando CONCATENAÇÃO DE STRINGS SIMPLES (sem caracteres invisíveis).
+    // Query de busca de lacuna (CÓDIGO LIMPO)
     const gapQuery = 'SELECT t1.id + 1 AS next_id FROM "' + tableName + '" t1 WHERE NOT EXISTS (SELECT 1 FROM "' + tableName + '" t2 WHERE t2.id = t1.id + 1) ORDER BY t1.id ASC LIMIT 1';
 
     // 1. Tentar encontrar a menor lacuna
@@ -161,7 +161,7 @@ function findAndInsert(tableName, data, res, insertFunction) {
         // 2. Fallback: Se não encontrou lacuna (NULL), busca o ID máximo e soma 1
         if (novoId === null || novoId === 1) { 
             
-            // Usa a concatenação de string em UMA ÚNICA LINHA para a query de MAX ID
+            // Query de MAX ID (CÓDIGO LIMPO)
             const maxQuery = 'SELECT MAX(id) AS max_id FROM "' + tableName + '"';
             
             db.get(maxQuery, (err, row) => {
@@ -182,7 +182,7 @@ function findAndInsert(tableName, data, res, insertFunction) {
 
 /* --------------------- ROTAS CLIENTES ---------------------- */
 
-// 1. Cadastrar cliente (POST /clientes) - LÓGICA DE REUTILIZAÇÃO ATIVADA
+// 1. Cadastrar cliente (POST /clientes)
 app.post('/clientes', (req, res) => {
     findAndInsert('clientes', req.body, res, performClientInsert);
 });
